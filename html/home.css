@@ -14,7 +14,7 @@ body{
     padding-bottom: 10vh;   
 }
 .bg_color {
-    background-color: rgb(191, 201, 248);
+    background-image: linear-gradient(rgb(191, 201, 248),rgb(0, 0, 0));
 }
 h1 {
     font-size: 3rem;
@@ -33,7 +33,7 @@ h3 {
     text-shadow: 2px 2px 8px #555;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
-#c1{
+#maincontainer{
     background-color:aliceblue; 
     border: 2px solid black;
     border-radius: 20px;
@@ -41,12 +41,10 @@ h3 {
     height: 80vh;
     margin-top: auto;
 }
-#c2{
+#crm_text{
     justify-content: left;
-    margin-left: 8vh;
+    margin-left: 100px;
     text-align: left;
-
-
 }
 .navbar-brand img {
     max-width: 100px;

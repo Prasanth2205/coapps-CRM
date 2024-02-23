@@ -1,5 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins",sans-serif;
+}
+div{
+    font-family: 'Times New Roman';
+}
 body{
-    /* background: url(download.jpg) no-repeat; */
+    padding-top: 10vh;
+    padding-left: 15vh;
+    padding-right: 15vh;
+    padding-bottom: 10vh;   
+}
+.bg_color {
+    background-color: rgb(191, 201, 248);
+}
+h1 {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight:bolder;
+    text-shadow: 2px 2px 2px #555;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h3 {
+    font-size:medium;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    text-shadow: 2px 2px 8px #555;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#maincontainer{
+    background-color:aliceblue; 
+    border: 2px solid black;
+    border-radius: 20px;
+    max-width: 90%;
+    height: 80vh;
+    margin-top: auto;
+}
+#crm_text{
+    justify-content: left;
+    margin-left: 100px;
+    text-align: left;
+}
+.navbar-brand img {
+    max-width: 100px;
+    height: auto;
+}
+
+
+/* body{
     background-image: linear-gradient(blue,rgb(184, 184, 240));
     background-position: center;
     background-size: cover;
@@ -124,4 +177,4 @@ input::placeholder{
     top: 50%;
     transform: translate(-50%,-50%) scale(1);
     visibility: visible;
-}
+} */
