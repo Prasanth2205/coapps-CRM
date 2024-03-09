@@ -1,0 +1,115 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:#c4b9b9;
+}
+nav {
+    height: 100px;
+    background-image: linear-gradient(rgb(75, 75, 75),rgb(32, 32, 32));
+    display: flex;
+    align-items: center;
+}
+#logoimage {    
+    width: 60px;
+    margin-left: 20px;
+    border-radius: 30px;
+}
+.nav-content {
+    margin-right: auto;
+}
+nav ul {
+    display: flex;
+    margin-right: 20px;
+    margin-left: 15vh;
+}
+nav ul li {
+    margin: 0 30px;
+    list-style: none;
+}
+nav ul li a {
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: relative;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+nav ul li a:before {
+    position: absolute;
+    content:'';
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: black;
+    transform: scaleX(0);
+    transition: transform .3s linear;
+}
+nav ul li a:hover:before {
+    transform: scaleX(1);
+}
+.profileLog {
+    margin-right: 20px;
+}
+.profileLog button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.profileLog button img {
+    width: 50px;
+    height: 50px;
+}
+.notification {
+    margin-right: 20px;
+}
+.notification button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.notification button img {
+    width: 30px;
+    height: 30px;
+}
+.boxes-container {
+    display: flex;
+    justify-content:space-around;
+    margin-top: 10px;
+}
+/* .box {
+    width: 350px;
+    height: 120px;
+    background-image: linear-gradient(rgb(75, 75, 75),rgb(32, 32, 32));
+    color: white;
+    text-align: center;
+    line-height: 110px;
+    border-radius: 20px;
+    font-size: large;
+    border: 2px solid black;
+} */
+
+.box {
+    width: 350px;
+    height: 120px;
+    background-image: linear-gradient(rgb(75, 75, 75), rgb(32, 32, 32));
+    color: white;
+    text-align: center;
+    line-height: 110px;
+    border-radius: 20px;
+    font-size: large;
+    border: 2px solid black;
+    transition: all 0.3s ease;
+}
+
+.box:hover {
+    background-image: linear-gradient(rgb(32, 32, 32), rgb(75, 75, 75));
+    border-color: white;
+}
+
+.box:hover h2 {
+    color: #ffcc00; /* Change text color on hover */
+}
