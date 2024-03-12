@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM System</title>
+   
+    {% load static %}
+    <link rel="icon" type="image/x-icon" href="{% static 'images/title_logo.jpeg' %}">
+    <link rel="stylesheet" href="{% static 'login.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"    rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script>
+        function validateEmail(email) {
+            const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            return regex.test(email); 
+        }
+    
+        function validateForm() {
+            const emailInput = document.getElementById("emailid").value.trim(); 
+            const pwd = document.getElementById('newpwd').value.trim();
+    
+            if (emailInput === "" || pwd === "") {
+                alert("Please fill in both email and password fields!");
+                return false;
+            }
+    
+            if (!validateEmail(emailInput)) {
+                alert("Please enter a valid email address!");
+                return false;
+            }
+            setTimeout(function() {
+                alert("Successfully submitted!");
+                document.getElementById('formid').reset();
+            }, 1000);
+            
+            return false;
+        }
+    </script>
+    
+      <style>
+        .btn-primary:hover {
+            background-image: linear-gradient(lightblue,blue);
+        }
+    </style>
+</head>
+<body class="bg_color">
+    <div class="container" id="maincontainer">
+            <header class="header">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container">
+                        <a class="navbar-brand" href="#">
+                            <img src="{% static 'images/CRM_Logo.png' %}" alt="Logo">
+                        </a>
+                        <div class="collapse navbar-collapse">
+                            <ul class="navbar-nav ml-auto" id="nav_content">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'home' %}"><b>Home</b></a>
+                                </li>
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" href="#"><b>About Us</b></a>
+                                </li> -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'login' %}"><b>Login</b></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="contactUsLink"><b>Contact Us</b></a>
+                                </li>
+                            </ul>
+                        </div>
+                </nav>
+            </header>
+            <div class="row">
+               <div class="col-auto">
+                  <img class="home_image" src="{% static 'images/Login_image.png' %}" alt="" style="width: 70vh;">
+              </div>
+              <div class="col-auto mr-auto">
+               <div class="form-box">
+                  <form action="" method="get" name="formfill" onsubmit="return validateForm()" id="formid" style="margin-left: 8vh; margin-top:5vh">
+                    <h2 style="color: #333;">Login</h2> <br>                   
+                       <!-- <div class="mb-3">
+                        <input type="text" name="username" id="uname" placeholder="Username" style="width:350px;border: none;background:none;border-bottom : 2px solid black; outline:none;"  />
+                        <i class='bx bx-user' style="margin-left: -25px;font-size:20px;color:#9d9a9a"></i>   
+                        </div><br> -->
+                       <div class="mb-3">
+                        <input type="email" name="Email" id="emailid" placeholder="Email or Username" style="width:350px;border: none;background:none;border-bottom : 2px solid black;outline:none;"/>
+                        <i class='bx bx-envelope'style="margin-left: -25px;font-size:20px;color:#9d9a9a"></i>
+                       </div><br>
+                       <div class="mb-3">
+                        <input type="password" name="password" id="newpwd" placeholder="Password" style="width:350px;border: none;background:none;border-bottom : 2px solid black;outline:none;"/>
+                        <i class='bx bxs-lock'style="margin-left: -25px;font-size:20px;color:#9d9a9a"></i>
+                       </div><br>
+                       <div class="text-center">
+                        <input type="submit" class="btn btn-primary w-100" value="Login" style="border-radius: 15px;">
+                       </div>
+                       
+                  </form>
+               </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="contact-us-popup" id="contactUsPopup">
+      <div class="popup-content">
+          <span class="close" onclick="closeContactUsPopup()">&times;</span>
+          <h2 style="margin-left: 16vh;">Contact Us</h2>
+          <form id="contactForm">
+              <label for="name">Name:</label>
+              <input type="text" placeholder="eg: Jackson" id="name" name="name">
+              <label for="email">Email:</label>
+              <input type="email" placeholder="eg: Jackson1995@gmail.com" id="email" name="email" required>
+              <label for="phone">Phone:</label>
+                <select id="countryCode" name="countryCode">
+                    <option value="+91">+91 (India)</option>
+                </select>
+                <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number (10 digits)"onkeypress="return onlyNumberKey(event)"required pattern="[0-9]{10}" title="Please enter 10 digit number">
+              <button type="submit" class="btn btn-primary w-100" style="max-width: 20vh;margin-left:16.5vh">Submit</button>
+          </form>
+      </div>
+  </div>
+  <!-- <script src="script.js"></script> -->
+    <script>
+        function openContactUsPopup() {
+            document.getElementById("contactUsPopup").style.display = "block";
+        }
+        function closeContactUsPopup() {
+            document.getElementById("contactUsPopup").style.display = "none";
+        }
+        document.getElementById("contactUsLink").addEventListener("click", function(event) {
+            event.preventDefault();
+            openContactUsPopup();
+        });
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            closeContactUsPopup();
+        });
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            closeContactUsPopup();
+            setTimeout(function() {
+                alert("Submitted Successfully");}, 500);
+        });
+        function onlyNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                evt.preventDefault();
+                return false;
+            }
+            var inputValue = evt.target.value;
+            if (inputValue.length >= 10) {
+                evt.preventDefault();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
