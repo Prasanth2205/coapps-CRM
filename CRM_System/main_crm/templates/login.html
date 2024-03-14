@@ -30,10 +30,20 @@
                 alert("Please enter a valid email address!");
                 return false;
             }
+            if(emailInput==='admin@gmail.com' && pwd==="123")
+            {
             setTimeout(function() {
+
                 alert("Successfully submitted!");
-                document.getElementById('formid').reset();
+                
             }, 1000);
+            window.location.href="{% url 'dashboard' %}";
+           
+            }
+            else{
+                window.alert('invalid login');
+                document.getElementById('formid').reset();
+            }
             
             return false;
         }
@@ -78,11 +88,11 @@
               <div class="col-auto mr-auto">
                <div class="form-box">
                   <form action="" method="get" name="formfill" onsubmit="return validateForm()" id="formid" style="margin-left: 8vh; margin-top:5vh">
-                    <h2 style="color: #333;">Login</h2> <br>                   
-                       <!-- <div class="mb-3">
-                        <input type="text" name="username" id="uname" placeholder="Username" style="width:350px;border: none;background:none;border-bottom : 2px solid black; outline:none;"  />
-                        <i class='bx bx-user' style="margin-left: -25px;font-size:20px;color:#9d9a9a"></i>   
-                        </div><br> -->
+                    <h2 style="color: #333;">Loginn</h2> <br>                   
+                       <div class="accessFor" name="accessFor" id="accessFor">
+                        <input type="radio" name="Access" id="Admin" value="Admin"><label for="Admin">Admin</label>
+                        <input type="radio" name="Access" id="Branch" value="Branch"><label for="Branch">Branch</label>
+                       </div>
                        <div class="mb-3">
                         <input type="email" name="Email" id="emailid" placeholder="Email or Username" style="width:350px;border: none;background:none;border-bottom : 2px solid black;outline:none;"/>
                         <i class='bx bx-envelope'style="margin-left: -25px;font-size:20px;color:#9d9a9a"></i>

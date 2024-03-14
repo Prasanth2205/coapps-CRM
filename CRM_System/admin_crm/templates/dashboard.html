@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kovai cars</title>
-    <link rel="stylesheet" href="dashboard.css">
-    <link rel="icon" type="image/x-icon" href="images/title_logo.jpeg">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/title_logo.jpeg' %}">
 </head>
 <body>
     <nav>
         <div>
-            <img src="images/company1.jpg" id="logoimage" alt="Company Logo">
+            <img src="{% static 'images/company1.jpg' %}" id="logoimage" alt="Company Logo">
         </div>
         <div class="nav-content">
             <ul>
@@ -23,10 +24,10 @@
             </ul>
         </div>
         <div class="notification">
-            <button><img src="images/notification-logo.png" alt="Notification Icon"></button>
+            <button><img src="{% static 'images/notification-logo.png' %}" alt="Notification Icon"></button>
         </div>
         <div class="profileLog">
-            <button><img src="images/Default-Profile.png" style="max-width: 50px;" alt="User Profile"></button>
+            <button><img src="{% static 'images/Default-Profile.png' %}" style="max-width: 50px;" alt="User Profile"></button>
         </div>
     </nav>
         <div class="boxes-container">
