@@ -1,0 +1,180 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:#c4b9b9;
+}
+nav {
+    height: 100px;
+    background-image: linear-gradient(rgb(75, 75, 75),rgb(32, 32, 32));
+    display: flex;
+    align-items: center;
+}
+#logoimage {    
+    width: 60px;
+    margin-left: 20px;
+    border-radius: 30px;
+}
+.nav-content {
+    margin-right: auto;
+}
+nav ul {
+    display: flex;
+    margin-right: 20px;
+    margin-left: 15vh;
+}
+nav ul li {
+    margin: 0 30px;
+    list-style: none;
+}
+nav ul li a {
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: relative;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+nav ul li a:before {
+    position: absolute;
+    content:'';
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: black;
+    transform: scaleX(0);
+    transition: transform .3s linear;
+}
+nav ul li a:hover:before {
+    transform: scaleX(1);
+}
+.profileLog {
+    margin-right: 20px;
+}
+.profileLog button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.profileLog button img {
+    width: 50px;
+    height: 50px;
+}
+.notification {
+    margin-right: 20px;
+}
+.notification button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.notification button img {
+    width: 30px;
+    height: 30px;
+}
+.a{
+    margin-left: 90%;
+}
+.a button{
+    border-radius: 5px;
+    height: 30px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    
+}
+.a  button:hover{
+    background-color: rgb(244, 245, 241);
+    color: #c4b9b9;
+}
+
+.account-popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    max-height: 600px;
+    display: fixed;
+    overflow-y: auto;
+    border-radius: 15px;
+    margin-top: 20vh;
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+}
+
+.popup-content label {
+    display: block;
+    padding: 5px;
+    margin-bottom: 0;
+    font-weight: bold;
+    margin-left: 26px;
+}
+
+.popup-content input {
+    width: 80%;
+    padding: 5px;
+    margin-bottom: 20px;
+    margin-left: 32px;
+
+}
+.popup-content button {
+    background-color: rgb(90, 90, 253);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    width: 180px;
+    height: 50px;
+    margin-left:12.5vh;
+}
+.popup-content select{
+    width: 83%;
+    padding: 7px;
+    margin-left: 32px;
+}
+
+.popup-content button:hover {
+    background-image: linear-gradient(lightblue,blue);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+.search-bar{
+    text-align: center;
+}
+.search-bar input{
+    padding: 5px;
+    width: 600px;
+    margin: 0;
+    height: 25px;
+}
