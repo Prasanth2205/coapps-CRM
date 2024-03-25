@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins",sans-serif;
+}
+div{
+    font-family: 'Times New Roman';
+}
+body{
+    padding-top: 10vh;
+    padding-left: 15vh;
+    padding-right: 15vh;
+    padding-bottom: 10vh;   
+}
+.bg_color {
+    background-image: linear-gradient(rgb(167, 182, 249),rgb(236, 234, 255),rgb(167, 182, 249));
+}
+h1 {
+    font-size: 3rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight:bolder;
+    text-shadow: 2px 2px 2px #555;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h3 {
+    font-size:medium;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    text-shadow: 2px 2px 8px #555;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+#maincontainer{
+    background-color:rgb(228, 229, 252); 
+    border: 2px solid black;
+    border-radius: 20px;
+    max-width: 90%;
+    height: 80vh;
+    margin-top: auto;
+}
+#crm_text{
+    justify-content: left;
+    margin-left: 100px;
+    text-align: left;
+}
+.navbar-brand img {
+    max-width: 100px;
+    height: auto;
+<<<<<<< HEAD
+}
+=======
+}
+.contact-us-popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.popup-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    border-radius: 15px;
+    margin-top: 20vh;
+}
+
+.popup-content h2 {
+    margin-bottom: 20px;
+}
+
+.popup-content label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.popup-content input[type="text"],
+.popup-content input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.popup-content button {
+    background-color: rgb(90, 90, 253);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.popup-content button:hover {
+    background-image: linear-gradient(lightblue,blue);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+>>>>>>> 94a95f4ae637fa5920fce55d75e42aa3adaee0a0
