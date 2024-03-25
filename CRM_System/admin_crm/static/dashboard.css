@@ -75,29 +75,3 @@ nav ul li a:hover:before {
     width: 30px;
     height: 30px;
 }
-.boxes-container {
-    display: flex;
-    justify-content:space-around;
-    margin-top: 10px;
-}
-.box {
-    width: 350px;
-    height: 120px;
-    background-image: linear-gradient(rgb(75, 75, 75), rgb(32, 32, 32));
-    color: white;
-    text-align: center;
-    line-height: 110px;
-    border-radius: 20px;
-    font-size: large;
-    border: 2px solid black;
-    transition: all 0.3s ease;
-}
-
-.box:hover {
-    background-image: linear-gradient(rgb(32, 32, 32), rgb(75, 75, 75));
-    border-color: white;
-}
-
-.box:hover h2 {
-    color: #ffcc00; /* Change text color on hover */
-}

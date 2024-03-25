@@ -11,10 +11,7 @@ from django.shortcuts import render
 def dashboard(request):
     return render(request,'dashboard.html')
 
-<<<<<<< HEAD
 def deals(request):
     return render(request,'deals.html')
 
 
-=======
->>>>>>> 94a95f4ae637fa5920fce55d75e42aa3adaee0a0

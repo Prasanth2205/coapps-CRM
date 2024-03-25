@@ -21,8 +21,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('main_crm.urls')),
     path('admin_crm/',include('admin_crm.urls')),
-<<<<<<< HEAD
-=======
-
->>>>>>> 94a95f4ae637fa5920fce55d75e42aa3adaee0a0
 ]
