@@ -6,7 +6,112 @@
     <title>Kovai cars</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'dashboard.css' %}">
-    <link rel="icon" type="image/x-icon" href="{% static 'images/title_logo.jpeg' %}">
+    <link rel="icon" type="image/x-icon" href="images/title_logo.jpeg">
+    <style>
+        
+#profileSidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 100px;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+#profileSidebar a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s; 
+  }
+  #profileSidebar a:hover {
+    color: #f1f1f1;
+  }
+  #profileSidebar .close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+
+
+  #notificationSidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+#notificationSidebar a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s; 
+  }
+  #notificationSidebar a:hover {
+    color: #f1f1f1;
+  }
+  #notificationSidebar .close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .nav-content ul li:nth-child(1) a:hover {
+    color: inherit; 
+    background: none;
+    color: white; 
+}
+
+  .dashboard-link {
+    color: white; 
+    background: linear-gradient(45deg, #666666, #000000); 
+    border-radius: 20px;
+}
+.boxes-container {
+    display: flex;
+    justify-content:space-around;
+    margin-top: 10px;
+}
+.box {
+    width: 350px;
+    height: 120px;
+    background-image: linear-gradient(rgb(75, 75, 75), rgb(32, 32, 32));
+    color: white;
+    text-align: center;
+    line-height: 110px;
+    border-radius: 20px;
+    font-size: large;
+    border: 2px solid black;
+    transition: all 0.3s ease;
+}
+
+.box:hover {
+    background-image: linear-gradient(rgb(32, 32, 32), rgb(75, 75, 75));
+    border-color: white;
+}
+
+.box:hover h2 {
+    color: #ffcc00; /* Change text color on hover */
+}
+
+    </style>
 </head>
 <body>
     <nav>
@@ -15,8 +120,8 @@
         </div>
         <div class="nav-content">
             <ul>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Deals</a></li>
+                <li><a href="{% url 'dashboard' %}" class="dashboard-link">Dashboard</a></li>
+                <li><a href="{% url 'deals' %}">Deals</a></li>
                 <li><a href="#">Meetings</a></li>
                 <li><a href="#">Accounts</a></li>
                 <li><a href="#">Sales</a></li>
@@ -24,11 +129,22 @@
             </ul>
         </div>
         <div class="notification">
-            <button><img src="{% static 'images/notification-logo.png' %}" alt="Notification Icon"></button>
+            <button id="notificationBtn"><img src="{% static 'images/notification-logo.png' %}" style="max-width: 50px;" alt="Notification"></button>
         </div>
+        <div id="notificationSidebar">
+            <a href="javascript:void(0)" class="close-btn" id="closenotificationSlide" style="max-width: 500px;">&times;</a>
+        </div>
+        
         <div class="profileLog">
-            <button><img src="{% static 'images/Default-Profile.png' %}" style="max-width: 50px;" alt="User Profile"></button>
+            <button id="profileBtn"><img src="{% static 'images/Default-Profile.png' %}" style="max-width: 50px;" alt="User Profile"></button>
         </div>
+        
+        <div id="profileSidebar">
+            <a href="javascript:void(0)" class="close-btn" id="closeProfileSlide">&times;</a>
+            <a href="#">View Profile</a>
+            <a href="#">Edit profile</a>
+            <a href="{% url 'home' %}">Logout</a>
+        </div> 
     </nav>
         <div class="boxes-container">
             <div class="box">Targets</div>
@@ -36,5 +152,39 @@
             <div class="box">Meetings</div>
             <div class="box">Leads</div>
         </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var profileBtn = document.getElementById('profileBtn');
+                var profileSidebar = document.getElementById('profileSidebar');
+                var closeProfileSlide = document.getElementById('closeProfileSlide');
+                var notificationBtn = document.getElementById('notificationBtn');
+                var notificationSidebar = document.getElementById('notificationSidebar');
+                var closeNotificationSlide = document.getElementById('closenotificationSlide');
+            
+                profileBtn.addEventListener('click', function () {
+                    if (notificationSidebar.style.width === '250px') {
+                        notificationSidebar.style.width = '0';
+                    }
+                    profileSidebar.style.width = '250px';
+                });
+            
+                closeProfileSlide.addEventListener('click', function () {
+                    profileSidebar.style.width = '0';
+                });
+            
+                notificationBtn.addEventListener('click', function () {
+                    if (profileSidebar.style.width === '250px') {
+                        profileSidebar.style.width = '0';
+                    }
+                    notificationSidebar.style.width = '400px';
+                });
+            
+                closeNotificationSlide.addEventListener('click', function () {
+                    notificationSidebar.style.width = '0';
+                });
+            });
+            
+        </script>
 </body>
 </html>

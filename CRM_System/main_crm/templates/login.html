@@ -36,7 +36,7 @@
 
                 alert("Successfully submitted!");
                 
-            }, 1000);
+            }, 500);
             window.location.href="{% url 'dashboard' %}";
            
             }
@@ -53,6 +53,26 @@
         .btn-primary:hover {
             background-image: linear-gradient(lightblue,blue);
         }
+
+        .button-group input[type="radio"] {
+            display: none;
+          }
+        
+          .button-group label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+          }
+        
+          .button-group input[type="radio"]:checked + label {
+            background-color: #007bff;
+            color: #fff;
+          }
+
     </style>
 </head>
 <body class="bg_color">
@@ -68,14 +88,11 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'home' %}"><b>Home</b></a>
                                 </li>
-                                <!-- <li class="nav-item">
-                                    <a class="nav-link" href="#"><b>About Us</b></a>
-                                </li> -->
                                 <li class="nav-item">
                                     <a class="nav-link" href="{% url 'login' %}"><b>Login</b></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" id="contactUsLink"><b>Contact Us</b></a>
+                                    <a class="nav-link" href="#"><b>About Us</b></a>
                                 </li>
                             </ul>
                         </div>
@@ -87,11 +104,16 @@
               </div>
               <div class="col-auto mr-auto">
                <div class="form-box">
-                  <form action="" method="get" name="formfill" onsubmit="return validateForm()" id="formid" style="margin-left: 8vh; margin-top:5vh">
-                    <h2 style="color: #333;">Loginn</h2> <br>                   
+                  <form action="" method="get" name="formfill" onsubmit="return validateForm()" id="formid" style="margin-left: 8vh; margin-top:4vh">
+                    <h2 style="color: #333;">Login</h2> <br>                   
                        <div class="accessFor" name="accessFor" id="accessFor">
-                        <input type="radio" name="Access" id="Admin" value="Admin"><label for="Admin">Admin</label>
-                        <input type="radio" name="Access" id="Branch" value="Branch"><label for="Branch">Branch</label>
+                        <div class="button-group">
+                            <input type="radio" name="Access" id="Admin" value="Admin" checked> <!-- Default selection -->
+                            <label for="Admin">Admin</label>
+                            
+                            <input type="radio" name="Access" id="Branch" value="Branch">
+                            <label for="Branch">Branch</label>
+                          </div>
                        </div>
                        <div class="mb-3">
                         <input type="email" name="Email" id="emailid" placeholder="Email or Username" style="width:350px;border: none;background:none;border-bottom : 2px solid black;outline:none;"/>
@@ -111,59 +133,5 @@
             </div>
         </div>
     </div>
-    <div class="contact-us-popup" id="contactUsPopup">
-      <div class="popup-content">
-          <span class="close" onclick="closeContactUsPopup()">&times;</span>
-          <h2 style="margin-left: 16vh;">Contact Us</h2>
-          <form id="contactForm">
-              <label for="name">Name:</label>
-              <input type="text" placeholder="eg: Jackson" id="name" name="name">
-              <label for="email">Email:</label>
-              <input type="email" placeholder="eg: Jackson1995@gmail.com" id="email" name="email" required>
-              <label for="phone">Phone:</label>
-                <select id="countryCode" name="countryCode">
-                    <option value="+91">+91 (India)</option>
-                </select>
-                <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number (10 digits)"onkeypress="return onlyNumberKey(event)"required pattern="[0-9]{10}" title="Please enter 10 digit number">
-              <button type="submit" class="btn btn-primary w-100" style="max-width: 20vh;margin-left:16.5vh">Submit</button>
-          </form>
-      </div>
-  </div>
-  <!-- <script src="script.js"></script> -->
-    <script>
-        function openContactUsPopup() {
-            document.getElementById("contactUsPopup").style.display = "block";
-        }
-        function closeContactUsPopup() {
-            document.getElementById("contactUsPopup").style.display = "none";
-        }
-        document.getElementById("contactUsLink").addEventListener("click", function(event) {
-            event.preventDefault();
-            openContactUsPopup();
-        });
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            closeContactUsPopup();
-        });
-        document.getElementById("contactForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            closeContactUsPopup();
-            setTimeout(function() {
-                alert("Submitted Successfully");}, 500);
-        });
-        function onlyNumberKey(evt) {
-            var charCode = (evt.which) ? evt.which : evt.keyCode;
-            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-                evt.preventDefault();
-                return false;
-            }
-            var inputValue = evt.target.value;
-            if (inputValue.length >= 10) {
-                evt.preventDefault();
-                return false;
-            }
-            return true;
-        }
-    </script>
 </body>
 </html>
