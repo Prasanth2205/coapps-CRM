@@ -80,21 +80,6 @@ nav ul li a:hover:before {
     justify-content:space-around;
     margin-top: 10px;
 }
-<<<<<<< HEAD
-=======
-/* .box {
-    width: 350px;
-    height: 120px;
-    background-image: linear-gradient(rgb(75, 75, 75),rgb(32, 32, 32));
-    color: white;
-    text-align: center;
-    line-height: 110px;
-    border-radius: 20px;
-    font-size: large;
-    border: 2px solid black;
-} */
-
->>>>>>> 94a95f4ae637fa5920fce55d75e42aa3adaee0a0
 .box {
     width: 350px;
     height: 120px;
