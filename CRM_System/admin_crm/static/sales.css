@@ -52,7 +52,7 @@ body,html {
     transform: scaleX(1);
   }
 
-  .nav-content ul li:nth-child(2) a:hover {
+  .nav-content ul li:nth-child(5) a:hover {
     color: inherit; 
     background: none;
     color: white; 
@@ -90,71 +90,6 @@ body,html {
     width: 35px;
     height: 35px;
   }
-  .create-deals-popup {
-    display: none;
-    position:fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-    overflow-y: hidden;
-}
-.popup-content {
-    background-color: white;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 30%;
-    border-radius: 20px;
-    margin-top: 18vh;
-    overflow-y: auto;
-    max-height: 500px;
-
-}
-.popup-content::-webkit-scrollbar {
-    width: 0.1px;
-}
-.popup-content label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-.popup-content input[type="text"],
-.popup-content input[type="email"] {
-    width: 90%;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-.popup-content button {
-    background-color: #111;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 15px;
-}
-
-.popup-content button:hover {
-    background-image: linear-gradient(#666666,#000000);
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
 .c-names{
     text-align: center;
     padding:10px;
@@ -270,62 +205,136 @@ select:focus {
     margin-left: 50px;
   }
 
-  .sidebar {
-    height: 100%;
-    width: 0px;
-    position: fixed;
-    z-index: 1;
-    top: 100px;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-  }
-  .sidebar a {
-    padding: 10px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #818181;
-    display: block;
-    transition: 0.3s; 
-  }
-  .sidebar a:hover {
-    color: #f1f1f1;
-  }
-  .sidebar .close-btn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-  }
-  .open-btn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #111;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    position:fixed;
-    border-radius: 15px;
-  }
-  .open-btn:hover ,.create-deals:hover  {
-    background-color: #444;
-  }    
-  #main {
-    transition: margin-left .5s;
-    padding: 16px;  
-  }
-  .create-deals{
-      float: right;
-      font-size: 20px;
-    cursor: pointer;
-    background-color: #111;
-    color: white;
-    margin-top: -15px;
-    padding: 10px 15px;
-    border: none;  
-    border-radius: 15px;
-    margin-right: 10px;
-  }
+.filter-popup {
+  position: absolute;
+  background-color: #fff;
+  border: 5px solid #ccc;
+  padding: 5px;
+/*   padding-right:50px; */
+}
+
+.hidden {
+  display: none;
+}
+    .view-by{
+        margin-left: 90%;
+        font-size: 20px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      margin-top: -15px;
+      padding: 10px 15px;
+      border: none;  
+      border-radius: 15px;
+    }
+
+input:focus{
+    border-color: #4CAF50;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0px;
+  position: fixed;
+  z-index: 1;
+  top: 100px;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.sidebar a {
+  padding: 10px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  transition: 0.3s; 
+}
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+.sidebar .close-btn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.open-btn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  position:fixed;
+  border-radius: 15px;
+}
+.open-btn:hover ,.create-deals:hover  {
+  background-color: #444;
+}    
+#main {
+  transition: margin-left .5s;
+  padding: 16px;  
+}
+.c-names{
+    text-align: center;
+     padding:10px;
+}
+
+
+
+/* Styling the dropdown arrow */
+.select-wrapper {
+position: relative;
+display: inline-block;
+}
+
+.select-wrapper:after {
+content: "\25BC";
+font-size: 12px;
+color: #555;
+position: absolute;
+top: 50%;
+right: 10px;
+transform: translateY(-50%);
+pointer-events: none;
+}
+/* Styling the select element */
+.c-names {
+appearance: none;
+/*   -webkit-appearance: none; */
+/*   -moz-appearance: none; */
+background-color: #fff;
+border: 1px solid #ccc;
+padding: 8px;
+font-size: 16px;
+width: 200px; /* Adjust as needed */
+cursor: pointer;
+/*   margin-right:30px; */
+}
+
+/* Hover effect on select */
+.c-names:hover {
+border-color: #999;
+}
+
+/* Focus effect on select */
+.c-names:focus {
+border-color: #4CAF50;
+outline: none;
+}
+
+/* Styling options within the select */
+.c-names option {
+background-color: #fff;
+color: #333;
+}
+
+/* Hover effect on options */
+.c-names option:hover {
+background-color: #f0f0f0;
+}
+
