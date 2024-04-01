@@ -10,4 +10,6 @@ from . import views
 urlpatterns=[
     path('dashboard/', views.dashboard,name='dashboard'),
     path('deals',views.deals,name='deals'),
+    path('sales',views.sales,name='sales'),
+    path('branch',views.branch,name='branch'),
 ]

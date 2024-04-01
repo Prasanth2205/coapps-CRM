@@ -13,3 +13,9 @@ def dashboard(request):
 
 def deals(request):
     return render(request,'deals.html')
+
+def sales(request):
+    return render(request,'sales.html')
+
+def branch (request):
+    return render(request,'branch.html')
