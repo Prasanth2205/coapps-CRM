@@ -21,7 +21,7 @@ nav {
 nav ul {
     display: flex;
     margin-right: 20px;
-    margin-left: 15vh;
+    margin-left: 5vh;
 }
 nav ul li {
     margin: 0 30px;
@@ -75,23 +75,90 @@ nav ul li a:hover:before {
     width: 30px;
     height: 30px;
 }
+
+        
+#profileSidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 100px;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+#profileSidebar a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s; 
+  }
+  #profileSidebar a:hover {
+    color: #f1f1f1;
+  }
+  #profileSidebar .close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+
+
+  #notificationSidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+#notificationSidebar a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s; 
+  }
+  #notificationSidebar a:hover {
+    color: #f1f1f1;
+  }
+  #notificationSidebar .close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .nav-content ul li:nth-child(1) a:hover {
+    color: inherit; 
+    background: none;
+    color: white; 
+}
+
+  .dashboard-link {
+    color: white; 
+    background: linear-gradient(45deg, #666666, #000000); 
+    border-radius: 20px;
+}
+
+
 .boxes-container {
     display: flex;
     justify-content:space-around;
     margin-top: 10px;
 }
-/* .box {
-    width: 350px;
-    height: 120px;
-    background-image: linear-gradient(rgb(75, 75, 75),rgb(32, 32, 32));
-    color: white;
-    text-align: center;
-    line-height: 110px;
-    border-radius: 20px;
-    font-size: large;
-    border: 2px solid black;
-} */
-
 .box {
     width: 350px;
     height: 120px;
@@ -111,5 +178,5 @@ nav ul li a:hover:before {
 }
 
 .box:hover h2 {
-    color: #ffcc00; /* Change text color on hover */
+    color: #ffcc00;
 }

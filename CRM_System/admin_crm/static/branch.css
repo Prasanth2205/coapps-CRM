@@ -52,13 +52,13 @@ body,html {
     transform: scaleX(1);
   }
 
-  .nav-content ul li:nth-child(2) a:hover {
+  .nav-content ul li:nth-child(5) a:hover {
     color: inherit; 
     background: none;
     color: white; 
 }
 
-  .deals-link {
+  .branch-link {
     color: white; 
     background: linear-gradient(45deg, #666666, #000000); 
     border-radius: 20px;
@@ -90,7 +90,7 @@ body,html {
     width: 35px;
     height: 35px;
   }
-  .create-deals-popup {
+  .create-branch-popup {
     display: none;
     position:fixed;
     z-index: 1000;
@@ -270,6 +270,7 @@ select:focus {
     margin-left: 50px;
   }
 
+
   .sidebar {
     height: 100%;
     width: 0px;
@@ -317,7 +318,7 @@ select:focus {
     transition: margin-left .5s;
     padding: 16px;  
   }
-  .create-deals{
+  .create-branch{
       float: right;
       font-size: 20px;
     cursor: pointer;
@@ -329,3 +330,37 @@ select:focus {
     border-radius: 15px;
     margin-right: 10px;
   }
+
+  #searchInput {
+    padding: 10px;
+    width: 600px;
+    border: none;
+    background-color: aliceblue;
+    color: black;
+    font-size: 16px;
+    border-radius: 20px;
+    outline: none;
+    box-shadow: 0 0 10px black;
+    margin-left: 30%;
+    margin-top: 20px;
+}
+
+#searchInput::placeholder {
+    color: #555    ;
+}
+
+#searchButton {
+    padding: 12px 20px;
+    background-color: aliceblue;
+    color: black;
+    border: none;
+    font-weight: bolder;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 0 10px black;
+}
+
+#searchButton:hover {
+    background-color: #acacac;
+}
