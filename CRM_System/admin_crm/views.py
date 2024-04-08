@@ -19,3 +19,6 @@ def sales(request):
 
 def branch (request):
     return render(request,'branch.html')
+
+def account(request):
+    return render(request,'account.html')
