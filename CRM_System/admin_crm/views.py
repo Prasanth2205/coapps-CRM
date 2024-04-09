@@ -22,3 +22,6 @@ def branch (request):
 
 def account(request):
     return render(request,'account.html')
+
+def inventory(request):
+    return render(request,'inventory.html')

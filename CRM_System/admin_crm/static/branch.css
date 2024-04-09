@@ -26,7 +26,7 @@ body,html {
     margin-left: 5vh;
   }
   nav ul li {
-    margin: 0 30px;
+    margin: 0 18px;
     list-style: none;
   }
   nav ul li a {
@@ -52,7 +52,7 @@ body,html {
     transform: scaleX(1);
   }
 
-  .nav-content ul li:nth-child(5) a:hover {
+  .nav-content ul li:nth-child(6) a:hover {
     color: inherit; 
     background: none;
     color: white; 
