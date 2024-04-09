@@ -14,4 +14,5 @@ urlpatterns=[
     path('branch',views.branch,name='branch'),
     path('account',views.account, name='account'),
     path('inventory',views.inventory, name='inventory'),
+    path('reports',views.reports, name='reports'),
 ]

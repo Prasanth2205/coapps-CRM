@@ -25,3 +25,6 @@ def account(request):
 
 def inventory(request):
     return render(request,'inventory.html')
+
+def reports(request):
+    return render(request,'reports.html')

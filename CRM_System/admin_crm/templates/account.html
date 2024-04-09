@@ -6,7 +6,14 @@
     {% load static %}
     <link rel="stylesheet" href="{%static 'account.css' %}">
     <title>Account</title>
-   
+   <style>
+    .c-names{
+        text-align: center;
+        padding:10px;
+        margin-bottom: 15px;
+        width: 95%;
+    }
+   </style>
 </head>
 <body id="body">
     <nav>
@@ -22,7 +29,7 @@
                 <li><a href="{% url 'inventory' %}">Inventory</a></li>
                 <li><a href="{% url 'branch' %}">Branch</a></li>
                 <li><a href="{% url 'sales'%}">Sales</a></li>
-                <li><a href="#">Reports</a></li>
+                <li><a href="{% url 'reports' %}">Reports</a></li>
             </ul>
         </div>
         <div class="notification">
@@ -39,11 +46,11 @@
     <div class="account-popup" id="accountPopup">
         <div class="popup-content">
             <span class="close" onclick="closeContactUsPopup()">&times;</span>
-            <h2 style="margin-left: 16vh;">Account Details</h2>
+            <h2 style="margin-left: 32%;">Account Details</h2>
             <form id="contactForm" onsubmit="return validateForm()">
                 <label > Account Type</label>
                 <select name="drop" class="c-names">
-                    <option value="" disabled selected>Select Account Type</option>
+                    <option value="" disabled selected style="font-size: larger;">Please Select Account Type</option>
                     <option value="text">Vehicle deals</option>
                     <option value="text">Spare parts deals</option>
                     <option value="text">Advertisement</option>

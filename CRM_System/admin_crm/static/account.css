@@ -122,6 +122,11 @@ nav {
 
 }
 
+
+#contactForm{
+    margin-right: 20px;
+}
+
 .popup-content {
     background-color: white;
     margin: 15% auto;
@@ -131,7 +136,7 @@ nav {
     border-radius: 20px;
     margin-top: 18vh;
     overflow-y: auto;
-    max-height: 600px;
+    max-height: 500px;
 
 }
 .popup-content::-webkit-scrollbar {
@@ -183,7 +188,7 @@ nav {
     border-radius: 15px;
     width: 100px;
     height: 50px;
-    margin-left:18.5vh;
+    margin-left:25vh;
 }
 .popup-content select{
     width: 88%;
