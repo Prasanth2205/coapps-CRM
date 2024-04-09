@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="account.css">
+    <title>Account</title>
+</head>
+<body id="body">
+    <nav>
+        <div>
+            <img src="images/company1.jpg" id="logoimage" alt="Company Logo">
+        </div>
+        <div class="nav-content">
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Deals</a></li>
+                <li><a href="#">Meetings</a></li>
+                <li><a href="#">Accounts</a></li>
+                <li><a href="#">Sales</a></li>
+                <li><a href="#">Reports</a></li>
+            </ul>
+        </div>
+        <div class="notification">
+            <button><img src="images/notification-logo.png" alt="Notification Icon"></button>
+        </div>
+        <div class="profileLog">
+            <button><img src="images/Default-Profile.png" style="max-width: 50px;" alt="User Profile"></button>
+        </div>
+    </nav>
+    <div class="a" >
+        <button onclick="show()">Create Account</button>
+    </div>
+    
+    <div class="account-popup" id="accountPopup">
+        <div class="popup-content">
+            <span class="close" onclick="closeContactUsPopup()">&times;</span>
+            <h2 style="margin-left: 16vh;">Account Details</h2>
+            <form id="contactForm" onsubmit="return validateForm()">
+                <label > Account Type</label>
+                <select name="drop" class="c-names">
+                    <option value="" disabled selected>Select Account Type</option>
+                    <option value="text">Vehicle deals</option>
+                    <option value="text">Spare parts deals</option>
+                    <option value="text">Advertisement</option>
+                    <option value="text">Others</option>
+                </select>
+                <label >Company Name :</label>
+                <input type="text" id="companyname">
+                <label >Account Name</label>
+                <input type="text" id="accountname" >
+                <label >Contact person name :</label>
+                <input type="text" id="Contactpersonname">
+                <label >GST Number :</label>
+                <input type="text" id="gstnum"title="Please enter a 15-digit GST number">
+                <label >Email:</label>
+                <input type="email" id="email" >
+                <label >Phone Number :</label>
+                <input type="text" id="phonenumber" title="Please enter 10 digit number">
+                <label >Address :</label>
+                <input type="text" id="address">
+                <label> IFSC code :</label>
+                <input type="text" id="ifsccode">
+                <label> Bank Account Number :</label>
+                <input type="text" id="banknumber">
+                <label >Bank Name :</label>
+                <input type="text" name="bankname">
+                <label >ID Proof</label>
+                <input type="file" class="file-upload-input" id="idproof" onchange="readURL(this)" accept="Image/*">
+                <button >Submit</button>
+            </form>
+        </div>
+    </div>
+    <div  class="search-bar">
+        <form action="/search" method="get">
+            <input type="text" name="search" placeholder="Search">
+            <button>Search</button>
+        </form>
+    </div>
+    <div class="table-content">
+       <table>
+        <tr>
+            <th>Company Name</th>
+            <th>Account Name</th>
+            <th>Bank Name</th>
+            <th>Related To</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+       </table>
+    </div>
+    <script>
+        function show(){
+            document.getElementById("accountPopup").style.display = "block";
+        }
+        function closeContactUsPopup() {
+            document.getElementById("accountPopup").style.display = "none";
+        }
+        function validateForm() {
+            var drop = document.forms["contactForm"]["drop"].value;
+            var companyname = document.getElementById("companyname").value.trim();
+            var accountname = document.getElementById("accountname").value.trim();
+            var contactpersonname = document.getElementById("Contactpersonname").value.trim();
+            var gstnum = document.getElementById("gstnum").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var phonenumber = document.getElementById("phonenumber").value.trim();
+            var address = document.getElementById("address").value.trim();
+            var ifsccode = document.getElementById("ifsccode").value.trim();
+            var banknumber = document.getElementById("banknumber").value.trim();
+            var bankname = document.getElementsByName("bankname")[0].value.trim();
+            var idproof = document.getElementById("idproof").value.trim();
+            if (drop == "") {
+                alert("Please select an Account Type.");
+                return false;
+            }
+        
+            if (companyname == "") {
+                alert("Please enter Company Name.");
+                return false;
+            }
+        
+            if (accountname == "") {
+                alert("Please enter Account Name.");
+                return false;
+            }
+        
+            if (contactpersonname == "") {
+                alert("Please enter Contact Person Name.");
+                return false;
+            }
+            if (gstnum == "" || gstnum.length < 15 || isValidGSTNumber(gstnum)) {
+                alert("Please enter a 15-digit GST number.");
+                return false;
+            }
+        
+            if (email == "" || !isValidEmail(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+        
+            if (phonenumber == "" || phonenumber.length != 10) {
+                alert("Please enter a 10-digit phone number.");
+                return false;
+            }
+
+            if (address == "") {
+                alert("Please enter Address.");
+                return false;
+            }
+
+            if (ifsccode == "") {
+                alert("Please enter IFSC code.");
+                return false;
+            }
+            if (banknumber == "") {
+                alert("Please enter Bank Account Number.");
+                return false;
+            }
+        
+            if (bankname == "") {
+                alert("Please enter Bank Name.");
+                return false;
+            }
+        
+            if (idproof == "") {
+                alert("Please upload ID Proof.");
+                return false;
+            }
+        
+            return true;
+        }
+        
+        function isValidEmail(email) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        function isValidGSTNumber(gstnum) {
+            var gstRegex = /^\d{2}[A-Z]{5}\d{4}[A-Z]{1}\d[Z]{1}[A-Z\d]{1}$/;
+            return gstRegex.test(gstnum);
+        }
+        
+    </script>
+</body>
+</html>

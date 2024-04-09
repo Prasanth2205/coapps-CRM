@@ -12,4 +12,5 @@ urlpatterns=[
     path('deals',views.deals,name='deals'),
     path('sales',views.sales,name='sales'),
     path('branch',views.branch,name='branch'),
+    path('account',views.account, name='account'),
 ]
