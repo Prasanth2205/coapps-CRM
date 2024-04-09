@@ -9,33 +9,33 @@ nav {
     background-image: linear-gradient(rgb(75, 75, 75),rgb(32, 32, 32));
     display: flex;
     align-items: center;
-}
-#logoimage {    
+  }
+  #logoimage {    
     width: 60px;
     margin-left: 20px;
     border-radius: 30px;
-}
-.nav-content {
+  }
+  .nav-content {
     margin-right: auto;
-}
-nav ul {
+  }
+  nav ul {
     display: flex;
     margin-right: 20px;
     margin-left: 5vh;
-}
-nav ul li {
-    margin: 0 30px;
+  }
+  nav ul li {
+    margin: 0 18px;
     list-style: none;
-}
-nav ul li a {
+  }
+  nav ul li a {
     color: white;
     font-size: 18px;
     text-transform: uppercase;
     position: relative;
     padding: 10px 15px;
     text-decoration: none;
-}
-nav ul li a:before {
+  }
+  nav ul li a:before {
     position: absolute;
     content:'';
     left: 0;
@@ -45,10 +45,23 @@ nav ul li a:before {
     background: black;
     transform: scaleX(0);
     transition: transform .3s linear;
-}
-nav ul li a:hover:before {
+  }
+  nav ul li a:hover:before {
     transform: scaleX(1);
+  }
+
+  .nav-content ul li:nth-child(4) a:hover {
+    color: inherit; 
+    background: none;
+    color: white; 
 }
+
+.acc-link {
+    color: white; 
+    background: linear-gradient(45deg, #666666, #000000); 
+    border-radius: 20px;
+}
+
 .profileLog {
     margin-right: 20px;
 }
@@ -109,6 +122,11 @@ nav ul li a:hover:before {
 
 }
 
+
+#contactForm{
+    margin-right: 20px;
+}
+
 .popup-content {
     background-color: white;
     margin: 15% auto;
@@ -118,7 +136,7 @@ nav ul li a:hover:before {
     border-radius: 20px;
     margin-top: 18vh;
     overflow-y: auto;
-    max-height: 600px;
+    max-height: 500px;
 
 }
 .popup-content::-webkit-scrollbar {
@@ -170,7 +188,7 @@ nav ul li a:hover:before {
     border-radius: 15px;
     width: 100px;
     height: 50px;
-    margin-left:18.5vh;
+    margin-left:25vh;
 }
 .popup-content select{
     width: 88%;

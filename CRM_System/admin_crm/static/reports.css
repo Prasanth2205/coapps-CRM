@@ -52,14 +52,13 @@ body,html {
     transform: scaleX(1);
   }
 
-  .nav-content ul li:nth-child(5) a:hover {
+  .nav-content ul li:nth-child(8) a:hover {
     color: inherit; 
     background: none;
     color: white; 
 }
 
-
-  .deals-link {
+  .reports-link {
     color: white; 
     background: linear-gradient(45deg, #666666, #000000); 
     border-radius: 20px;

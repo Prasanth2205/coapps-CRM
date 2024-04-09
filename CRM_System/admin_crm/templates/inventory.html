@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kovai Cars</title>
   {% load static %}
-  <link rel="stylesheet" href="{% static 'deals.css'%}">
+  <link rel="stylesheet" href="{% static 'inventory.css'%}">
   <link rel="icon" type="image/x-icon" href="{% static 'images/title_logo.jpeg' %}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
@@ -17,10 +17,10 @@
         <div class="nav-content">
             <ul>
                 <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
-                <li><a href="{% url 'deals' %}" class="deals-link">Deals</a></li>
+                <li><a href="{% url 'deals' %}">Deals</a></li>
                 <li><a href="#">Meetings</a></li>
                 <li><a href="{% url 'account'%}">Accounts</a></li>
-                <li><a href="{% url 'inventory' %}">Inventory</a></li>
+                <li><a href="{% url 'inventory' %}"  class="inventory-link">Inventory</a></li>
                 <li><a href="{% url 'branch' %}" class="branch-link">Branch</a></li>
                 <li><a href="{% url 'sales' %}">Sales</a></li>
                 <li><a href="{% url 'reports' %}">Reports</a></li>
@@ -45,46 +45,80 @@
         </div>        
     </nav>
  <div id="main">
-    <button id="openSlide" class="open-btn">&#9776; More Deals</button>
+    <button id="openSlide" class="open-btn">&#9776; Filter</button>
   </div>
   
   <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="close-btn" id="closeSlide">&times;</a>
-    <a href="#">All Deals</a>
-    <a href="#">Current Deals</a>
-    <a href="#">Opening Deals</a>
-    <a href="#">Closed Deals</a>
+    <a href="#">All.........</a>
+    <a href="#">One.........</a>
+    <a href="#">Two.........</a>
+    <a href="#">Others......</a>
   </div>
-    <button  class="create-deals" id="dealsLink">Create Deals</button>
+    <button  class="create-deals" id="dealsLink">Add Stock</button>
 
     <div class="create-deals-popup" id="dealsPopup">
         <div class="popup-content">
             <span class="close" onclick="CloseDealsPopup()">&times;</span>
-            <h2 style="margin-left: 18vh;">CREATE DEALS</h2>
+            <h2 style="margin-left: 18vh;">ADDING STOCK</h2>
             <form id="dealsForm">
                 <div class="formpage">
-                <label for="name" >Company Name:</label>
+                <label for="name" >Brand Name:</label>
                 <select name="company-names" id="c-names" class="c-names" required>
-                    <option value="" disabled selected>Please select the company</option>
-                    <option value="c1">Company1 & co PVT LTD</option>
-                    <option value="c2">Company2 & co PVT LTD</option>
-                    <option value="c3">Company3 & co PVT LTD</option>
-                    <option value="c4">Company4 & co PVT LTD</option>
+                    <option value="" disabled selected>Please select the Brand</option>
+                    <option value="c1">Benz</option>
+                    <option value="c2">BMW</option>
+                    <option value="c3">Audi</option>
+                    <option value="c4">Suzuki</option>
                 </select>
-                <label for="name" >Related To:</label>
+                <label for="name" >Model Name:</label>
                 <select name="related" id="r-names" class="c-names" required>
-                    <option value="" disabled selected>Please select the Related Type</option>
-                    <option value="c1">Leads on vehiles</option>
-                    <option value="c2">Leads on spare parts</option>
-                    <option value="c3">Leads on advertisements</option>
-                    <option value="c4">Others</option>
+                    <option value="" disabled selected>Please select the Model</option>
+                    <option value="c1">X1</option>
+                    <option value="c2">X3</option>
+                    <option value="c3">X6</option>
+                    <option value="c4">X7</option>
                 </select>
-                <label for="amt">Amount:</label>
-                <input type="text" class="other-inputs" placeholder="Please enter the amount" value="₹" oninput="formatCurrency(this)" onkeypress="return onlyNumberKey(event)" style="width: 95%;">
-                <label for="close-date">Close date:</label>
-                <input type="date" id="dateInput" class="other-inputs" required>
+                <label for="name" >Varient:</label>
+                <select name="related" id="r-names" class="c-names" required>
+                    <option value="" disabled selected>Please select the varient</option>
+                    <option value="c1">Petrol</option>
+                    <option value="c2">Diesel</option>
+                    <option value="c3">CNG</option>
+                    <option value="c4">HYbrid</option>
+                </select>
+                <label for="amt">Model of Year</label>
+                <input type="text" class="other-inputs" placeholder="Example: 2021" onkeypress="return onlyNumberKey(event)" style="width: 95%;">
+                <label for="amt">Engine Number:</label>
+                <input type="text" class="other-inputs" placeholder="Example: ABC1234567890" onkeypress="return onlyNumberKey(event)" style="width: 95%;">
+                <label for="amt">Chase Number:</label>
+                <input type="text" class="other-inputs" placeholder="Example: 1HGCM82633A004352" onkeypress="return onlyNumberKey(event)" style="width: 95%;">
+                <label for="name" >Insurance Status:</label>
+                <select name="related" id="r-names" class="c-names" required>
+                    <option value="" disabled selected>Please select the status</option>
+                    <option value="c1">Current</option>
+                    <option value="c2">Expired</option>
+                    <option value="c3">Comprehensive</option>
+                </select>
+                <label for="name" >RC Status:</label>
+                <select name="related" id="r-names" class="c-names" required>
+                    <option value="" disabled selected>Please select the status</option>
+                    <option value="c1">Current</option>
+                    <option value="c2">Expired</option>
+                    <option value="c3">Comprehensive</option>
+                </select>
+                <label for="amt">Car Color:</label>
+                <input type="text" class="other-inputs" placeholder="Example: White"  style="width: 95%;">
+                <label for="amt">Number of Owners:</label>
+                <input type="text" class="other-inputs" placeholder="Example: 1" onkeypress="return onlyNumberKey(event)" style="width: 95%;">
+                <label for="amt">Acquisition Cost:</label>
+                <input type="text" class="other-inputs" placeholder="The cost which is buyed" value="₹" oninput="formatCurrency(this)" onkeypress="return onlyNumberKey(event)" style="width: 95%;">
+                <label for="amt">Revenue:</label>
+                <input type="text" class="other-inputs" placeholder="The cost which need to sell" value="₹" oninput="formatCurrency(this)" onkeypress="return onlyNumberKey(event)" style="width: 95%;">
+                <label for="close-date">Delivery date:</label>
+                <input type="date" class="other-inputs" required>
                 <label for="des">Description:</label>
-                <textarea rows="5" cols="60" name="text" class="other-inputs" placeholder="Enter the deal's description....." required style="resize: none;"></textarea>
+                <textarea rows="5" cols="60" name="text" class="other-inputs" placeholder="Enter the car's description....." required style="resize: none;"></textarea>
                 <div class="sub-btn">
                 <button type="submit" class="btn btn-primary w-100" id="sub">Submit</button>
             </div>
@@ -148,11 +182,7 @@
             evt.preventDefault();
             return false;
         } 
-    } 
-    var currentDate = new Date();
-    var formattedDate = currentDate.toISOString().split('T')[0];
-    document.getElementById("dateInput").setAttribute("min", formattedDate);  
-    
+    }  
     document.addEventListener("DOMContentLoaded", function() {
         const openBtn = document.getElementById("openSlide");
         const closeBtn = document.getElementById("closeSlide");
