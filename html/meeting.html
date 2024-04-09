@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kovai cars</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="icon" type="image/x-icon" href="images/title_logo.jpeg">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <style>
+        
+        .sidebar {
+      height: 100%;
+      width: 0px;
+      position: fixed;
+      z-index: 1;
+      top: 100px;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.1s;
+      padding-top: 60px;
+    }
+
+    .sidebar p {
+      padding: 10px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidebar p:hover {
+      color: #f1f1f1;
+      cursor: pointer;
+    }
+
+    .sidebar .close-btn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+      color: white;
+      transition:0.2ms;
+    }
+
+    .open-btn {
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      position:fixed;
+    }
+
+    .open-btn:hover {
+      background-color: #444;
+    }    
+    #main {
+      padding: 16px;
+      margin-left: 0;   
+    }
+select#menu {
+  width: 219px; 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  overflow-y: scroll;
+  max-height: 100px; 
+  cursor: pointer;
+  color: blue;
+  /* background-clor: ;  */
+}
+.meeting-button {
+    position: fixed;
+    top: 116px;
+    right: 20px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.meeting-button:hover {
+    background-color: #0056b3;
+}
+.header{
+         width: 1450px; 
+         margin-left: 200px;
+          color:red;
+          position: fixed;
+        }
+
+.popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fefefe;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            z-index: 1000;
+            width: 400px;
+        }
+        .popup-content {
+            text-align: center;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+        .popup-content label {
+            display: inline-block;
+            width: 30%;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        .popup-content input[type="text"],
+        .popup-content input[type="date"],
+        .popup-content input[type="time"] {
+            width: calc(70% - 10px);
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            display: inline-block;
+        }
+        .popup-content button {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 0;
+            cursor: pointer;
+        }
+        .popup-content button:hover {
+            background-color: #0056b3;
+        }
+        .table-container {
+        width: 100%;
+        margin: 60px auto;
+        transition: width 0.3s ease;
+        position:fixed;
+    }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            position:inherit;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <img src="images/company1.jpg" id="logoimage" alt="Company Logo">
+        </div>
+        <div class="nav-content">
+            <ul>
+                <li><a href="#">Dashboard</a></li>
+                <li><a href="#">Deals</a></li>
+                <li><a href="#">Meetings</a></li>
+                <li><a href="#">Accounts</a></li>
+                <li><a href="#">Sales</a></li>
+                <li><a href="report.html">Reports</a></li>
+            </ul>
+        </div>
+        <div class="notification">
+            <button><img src="images/notification-logo.png" alt="Notification Icon"></button>
+        </div>
+        <div class="profileLog">
+            <button><img src="images/Default-Profile.png" style="max-width: 50px;" alt="User Profile"></button>
+        </div>
+    </nav>
+    <div class="header">
+        <marquee width="80%" behavior="alternate"> <h1>Welcome To Meetings</h1></marquee>
+    </div>
+    <div id="main">
+        <button id="openSlide" class="open-btn">&#9776; More Meetings</button>
+      </div>
+    
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="close-btn" id="closeSlide">&times;</a>
+        <p onclick="current_deal()">All Meetings</p>
+        <p onclick="custom_deal_report()">Cancelled Meetings</p>
+        <p onclick="Closed_DealReport()">Completed Meetings</p>
+        <p onclick="Miscellaneous_Normal_Report()">Upcoming Meetings</p>
+      </div>
+
+     
+    <div class="table-container"id="table_container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Related To</th>
+                    <th>Contact Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tbody>
+        </table>
+</div>
+
+    <button class="meeting-button" onclick="showCreateMeetingPopup()">Create Meeting</button>
+    <div id="createMeetingPopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <h2>Create Meeting</h2>
+            <form>
+                <label for="meetingMode">Mode:</label>
+                <input type="text" id="meetingMode" name="meetingMode" required><br>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required><br>
+                <label for="from">From:</label>
+                <input type="time" id="from" name="from" required><br>
+                <label for="to">To:</label>
+                <input type="time" id="to" name="to" required><br>
+                <label for="host">Host:</label>
+                <input type="text" id="host" name="host" required><br>
+                <label for="participants">Participants:</label>
+                <input type="text" id="participants" name="participants" required><br>
+                <label for="related to">Related to:</label>
+                <input type="text" id="related to" name="related to" required><br>
+                <button type="submit">Create</button>
+            </form>
+        </div>
+    </div>
+
+        <script>
+            
+            function togglePopupMenu() {
+                var popupMenu = document.getElementById("popupMenu");
+                if (popupMenu.style.display === "none") {
+                    popupMenu.style.display = "block";
+                } else {
+                    popupMenu.style.display = "none";
+                }
+            }
+            function showCreateMeetingPopup() {
+            var createMeetingPopup = document.getElementById("createMeetingPopup");
+            createMeetingPopup.style.display = "block";
+        }
+
+        
+        function closePopup() {
+            var createMeetingPopup = document.getElementById("createMeetingPopup");
+            createMeetingPopup.style.display = "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+    const openBtn = document.getElementById("openSlide");
+    const closeBtn = document.getElementById("closeSlide");
+    const sidebar = document.getElementById("mySidebar");
+  
+    openBtn.addEventListener('click', () => {
+      sidebar.style.width = "250px";
+      document.getElementById("main").style.marginLeft = "250px";
+      openBtn.style.display = "none";
+      document.getElementById("table_container").style.marginLeft = "250px";
+    });
+  
+    closeBtn.addEventListener('click', () => {
+      sidebar.style.width = "0";
+      document.getElementById("main").style.marginLeft= "0";
+      openBtn.style.display = "block";
+      document.getElementById("table_container").style.marginLeft = "0px";
+    });
+  });
+        </script>
+        
+</body>
+</html>
