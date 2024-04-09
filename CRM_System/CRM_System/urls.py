@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('main_crm.urls')),
     path('admin_crm/',include('admin_crm.urls')),
+    path('branch_crm/',include('branch_crm.urls')),
 
 ]

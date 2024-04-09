@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kovai cars</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'dashboard.css' %}">
+    <link rel="icon" type="image/x-icon" href="images/title_logo.jpeg">
+    <style>
+</style>
+</head>
+<body>
+    <nav>
+        <div>
+            <img src="{% static 'images/company1.jpg' %}" id="logoimage" alt="Company Logo">
+        </div>
+        <div class="nav-content">
+            <ul>
+                <li><a href="{% url 'dashboard' %}" class="dashboard-link">Dashboard</a></li>
+                <li><a href="{% url 'deals' %}">Deals</a></li>
+                <li><a href="#">Meetings</a></li>
+                <li><a href="#">Accounts</a></li>
+                <li><a href="{% url 'branch' %}">Branch</a></li>
+                <li><a href="{% url 'sales' %}">Sales</a></li>
+                <li><a href="#">Reports</a></li>
+            </ul>
+        </div>
+        <div class="notification">
+            <button id="notificationBtn"><img src="{% static 'images/notification-logo.png' %}" style="max-width: 50px;" alt="Notification"></button>
+        </div>
+        <div id="notificationSidebar">
+            <a href="javascript:void(0)" class="close-btn" id="closenotificationSlide" style="max-width: 500px;">&times;</a>
+        </div>
+        
+        <div class="profileLog">
+            <button id="profileBtn"><img src="{% static 'images/Default-Profile.png' %}" style="max-width: 50px;" alt="User Profile"></button>
+        </div>
+        
+        <div id="profileSidebar">
+            <a href="javascript:void(0)" class="close-btn" id="closeProfileSlide">&times;</a>
+            <a href="#">View Profile</a>
+            <a href="#">Edit profile</a>
+            <a href="{% url 'home' %}">Logout</a>
+        </div> 
+    </nav>
+        <div class="boxes-container">
+            <div class="box">Targets</div>
+            <div class="box">Expenses</div>
+            <div class="box">Meetings</div>
+            <div class="box">Leads</div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var profileBtn = document.getElementById('profileBtn');
+                var profileSidebar = document.getElementById('profileSidebar');
+                var closeProfileSlide = document.getElementById('closeProfileSlide');
+                var notificationBtn = document.getElementById('notificationBtn');
+                var notificationSidebar = document.getElementById('notificationSidebar');
+                var closeNotificationSlide = document.getElementById('closenotificationSlide');
+            
+                profileBtn.addEventListener('click', function () {
+                    if (notificationSidebar.style.width === '250px') {
+                        notificationSidebar.style.width = '0';
+                    }
+                    profileSidebar.style.width = '250px';
+                });
+            
+                closeProfileSlide.addEventListener('click', function () {
+                    profileSidebar.style.width = '0';
+                });
+            
+                notificationBtn.addEventListener('click', function () {
+                    if (profileSidebar.style.width === '250px') {
+                        profileSidebar.style.width = '0';
+                    }
+                    notificationSidebar.style.width = '400px';
+                });
+            
+                closeNotificationSlide.addEventListener('click', function () {
+                    notificationSidebar.style.width = '0';
+                });
+            });
+            
+        </script>
+</body>
+</html>
