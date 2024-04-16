@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kovai Cars</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'reports.css'%}">
+  <link rel="icon" type="image/x-icon" href="{% static 'images/title_logo.jpeg' %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body> 
+    <nav>
+        <div>
+            <img src="{% static 'images/company1.jpg'%}" id="logoimage" alt="Company Logo">
+        </div>
+        <div class="nav-content">
+            <ul>
+                <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'deals' %}">Deals</a></li>
+                <li><a href="#">Meetings</a></li>
+                <li><a href="{% url 'account'%}">Accounts</a></li>
+                <li><a href="{% url 'inventory' %}">Inventory</a></li>
+                <li><a href="{% url 'branch' %}" class="branch-link">Branch</a></li>
+                <li><a href="{% url 'sales' %}">Sales</a></li>
+                <li><a href="{% url 'reports' %}" class="reports-link">Reports</a></li>
+            </ul>
+        </div>
+        <div class="notification">
+            <button id="notificationBtn"><img src="{% static 'images/notification-logo.png' %}" style="max-width: 50px;" alt="Notification"></button>
+        </div>
+        <div id="notificationSidebar">
+            <a href="javascript:void(0)" class="close-btn" id="closenotificationSlide" style="max-width: 500px;">&times;</a>
+        </div>
+        
+        <div class="profileLog">
+            <button id="profileBtn"><img src="{% static 'images/Default-Profile.png' %}" style="max-width: 50px;" alt="User Profile"></button>
+        </div>
+        
+        <div id="profileSidebar">
+            <a href="javascript:void(0)" class="close-btn" id="closeProfileSlide">&times;</a>
+            <a href="#">View Profile</a>
+            <a href="#">Edit profile</a>
+            <a href="{% url 'home' %}">Logout</a>
+        </div>        
+    </nav>
+ <div id="main">
+    <button id="openSlide" class="open-btn">&#9776; Filter</button>
+  </div>
+  
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="close-btn" id="closeSlide">&times;</a>
+    <a href="#">Current Deal Report</a>
+    <a href="#">Custom Deal Report</a>
+    <a href="#">Closed Deal Report</a>
+    <a href="#">Miscellaneous Normal Report</a>
+    <a href="#">Miscellaneous Custom Report</a>
+    <a href="#">Daily Report</a>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const openBtn = document.getElementById("openSlide");
+      const closeBtn = document.getElementById("closeSlide");
+      const sidebar = document.getElementById("mySidebar");
+      const sidebarLinks = document.querySelectorAll(".sidebar a");
+      openBtn.addEventListener('click', () => {
+        sidebar.style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        openBtn.style.display = "none";
+        sidebarLinks.forEach(link => {
+          link.style.display = "block";
+        });
+      });
+    
+      closeBtn.addEventListener('click', () => {
+        sidebar.style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        openBtn.style.display = "block";
+        sidebarLinks.forEach(link => {
+          link.style.display = "none";
+        });
+      });
+    });  
+    document.addEventListener("DOMContentLoaded", function() {
+        const openBtn = document.getElementById("openSlide");
+        const closeBtn = document.getElementById("closeSlide");
+        const sidebar = document.getElementById("mySidebar");
+        const sidebarLinks = document.querySelectorAll(".sidebar a");
+    
+        openBtn.addEventListener('click', () => {
+            openSidebar();
+        });
+    
+        closeBtn.addEventListener('click', () => {
+            closeSidebar();
+        });
+    
+        function openSidebar() {
+            closeProfileSidebar();
+            closeNotificationSidebar();
+            sidebar.style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            openBtn.style.display = "none";
+            sidebarLinks.forEach(link => {
+                link.style.display = "block";
+            });
+        }
+    
+        function closeSidebar() {
+            sidebar.style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            openBtn.style.display = "block";
+            sidebarLinks.forEach(link => {
+                link.style.display = "none";
+            });
+        }
+    
+        function closeProfileSidebar() {
+            const profileSidebar = document.getElementById("profileSidebar");
+            profileSidebar.style.width = "0";
+        }
+    });
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        const profileBtn = document.getElementById("profileBtn");
+        const closeProfileBtn = document.getElementById("closeProfileSlide");
+        const profileSidebar = document.getElementById("profileSidebar");
+    
+        profileBtn.addEventListener('click', () => {
+            openProfileSidebar();
+        });
+    
+        closeProfileBtn.addEventListener('click', () => {
+            closeProfileSidebar();
+        });
+    
+        function openProfileSidebar() {
+            closeSidebar();
+            closeNotificationSidebar();
+            profileSidebar.style.width = "250px";
+        }
+    
+        function closeProfileSidebar() {
+            const profileSidebar = document.getElementById("profileSidebar");
+            profileSidebar.style.width = "0";
+        }
+    
+        function closeSidebar() {
+            const sidebar = document.getElementById("mySidebar");
+            sidebar.style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            const openBtn = document.getElementById("openSlide");
+            openBtn.style.display = "block";
+            const sidebarLinks = document.querySelectorAll(".sidebar a");
+            sidebarLinks.forEach(link => {
+                link.style.display = "none";
+            });
+        }
+    
+        function closeNotificationSidebar() {
+            const notificationSidebar = document.getElementById("notificationSidebar");
+            notificationSidebar.style.width = "0";
+        }
+    });
+    
+    document.addEventListener("DOMContentLoaded", function() {
+        const notificationBtn = document.getElementById("notificationBtn");
+        const closenotificationBtn = document.getElementById("closenotificationSlide");
+        const notificationSidebar = document.getElementById("notificationSidebar");
+    
+        notificationBtn.addEventListener('click', () => {
+            openNotificationSidebar();
+        });
+    
+        closenotificationBtn.addEventListener('click', () => {
+            closeNotificationSidebar();
+        });
+    
+        function openNotificationSidebar() {
+            closeSidebar();
+            closeProfileSidebar();
+            notificationSidebar.style.width = "400px";
+        }
+    
+        function closeNotificationSidebar() {
+            const notificationSidebar = document.getElementById("notificationSidebar");
+            notificationSidebar.style.width = "0";
+        }
+    
+        function closeSidebar() {
+            const sidebar = document.getElementById("mySidebar");
+            sidebar.style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            const openBtn = document.getElementById("openSlide");
+            openBtn.style.display = "block";
+            const sidebarLinks = document.querySelectorAll(".sidebar a");
+            sidebarLinks.forEach(link => {
+                link.style.display = "none";
+            });
+        }
+        function closeProfileSidebar() {
+            const profileSidebar = document.getElementById("profileSidebar");
+            profileSidebar.style.width = "0";
+        }
+    });
+    </script>
+    
+  </body>
+</html>

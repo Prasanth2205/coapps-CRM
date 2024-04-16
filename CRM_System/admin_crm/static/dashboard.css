@@ -1,0 +1,189 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:#c4b9b9;
+}
+nav {
+    height: 100px;
+    background-image: linear-gradient(rgb(75, 75, 75),rgb(32, 32, 32));
+    display: flex;
+    align-items: center;
+  }
+  #logoimage {    
+    width: 60px;
+    margin-left: 20px;
+    border-radius: 30px;
+  }
+  .nav-content {
+    margin-right: auto;
+  }
+  nav ul {
+    display: flex;
+    margin-right: 20px;
+    margin-left: 5vh;
+  }
+  nav ul li {
+    margin: 0 18px;
+    list-style: none;
+  }
+  nav ul li a {
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: relative;
+    padding: 10px 15px;
+    text-decoration: none;
+  }
+  nav ul li a:before {
+    position: absolute;
+    content:'';
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background: black;
+    transform: scaleX(0);
+    transition: transform .3s linear;
+  }
+  nav ul li a:hover:before {
+    transform: scaleX(1);
+  }
+
+  .nav-content ul li:nth-child(5) a:hover {
+    color: inherit; 
+    background: none;
+    color: white; 
+}
+
+.profileLog {
+    margin-right: 20px;
+}
+.profileLog button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.profileLog button img {
+    width: 50px;
+    height: 50px;
+}
+.notification {
+    margin-right: 20px;
+}
+.notification button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.notification button img {
+    width: 30px;
+    height: 30px;
+}
+
+        
+#profileSidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 100px;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+#profileSidebar a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s; 
+  }
+  #profileSidebar a:hover {
+    color: #f1f1f1;
+  }
+  #profileSidebar .close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+
+
+  #notificationSidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+#notificationSidebar a {
+    padding: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    transition: 0.3s; 
+  }
+  #notificationSidebar a:hover {
+    color: #f1f1f1;
+  }
+  #notificationSidebar .close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .nav-content ul li:nth-child(1) a:hover {
+    color: inherit; 
+    background: none;
+    color: white; 
+}
+
+  .dashboard-link {
+    color: white; 
+    background: linear-gradient(45deg, #666666, #000000); 
+    border-radius: 20px;
+}
+
+
+.boxes-container {
+    display: flex;
+    justify-content:space-around;
+    margin-top: 10px;
+}
+.box {
+    width: 350px;
+    height: 120px;
+    background-image: linear-gradient(rgb(75, 75, 75), rgb(32, 32, 32));
+    color: white;
+    text-align: center;
+    line-height: 110px;
+    border-radius: 20px;
+    font-size: large;
+    border: 2px solid black;
+    transition: all 0.3s ease;
+}
+
+.box:hover {
+    background-image: linear-gradient(rgb(32, 32, 32), rgb(75, 75, 75));
+    border-color: white;
+}
+
+.box:hover h2 {
+    color: #ffcc00;
+}
